@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"> 
+                        <a href="/">Home</a>
+                    </div>
+                    <div style="color:white; background-image:linear-gradient(gray,blue);" class="col-md-8">
+                        {{ wtf.quick_form(comment_form) }}
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div style="width: 200px;" class="container">
+                    {% for comment in comment%}
+                    <div class="card">
+                        <div class="card-title">
+                            Comment {{ comment.username }}
+                        </div>
+                        <div class="card-body">
+                            <li>{{comment.comment_content}}</li>
+                        </div>
+                        <div class="card-footer">
+                            <h6><a href="#"><button class="btn btn-outline-success btn-sm"></button></a>
+                                <a href="#"><button class="btn btn-outline-warning btn-sm"></button></a>
+                            <h6>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+    </div>
+                    
+</div>
+{% endblock%}
