@@ -19,7 +19,7 @@ class RegistrationForm(FlaskForm):
 
     username = StringField('Enter your username',validators = [Required()])
 
-    password = PasswordField('Password',validators = [Required(), EqualTo('confirm_password',message = 'Ensure your Password match')])
+    password = PasswordField('Password',validators = [Required(), EqualTo('confirm_password',message = 'Ensure your Pasword match')])
 
     confirm_password = PasswordField('Confirm Passwords',validators = [Required()])
 
