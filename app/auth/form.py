@@ -1,42 +1,34 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import Required, Email, Length, EqualTo
+from wtforms import StringField,PasswordField,BooleanField,SubmitField
+from wtforms.validators import Required,Email,EqualTo
 from ..models import User
 from wtforms import ValidationError
 
-
-# login form
 class LoginForm(FlaskForm):
-    """
-    Login form
-    """
-    email = StringField('Email', validators=[
-                        Required(), Length(1, 64), Email()])
-    password = PasswordField('Password', validators=[Required()])
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Log In')
+    email = StringField('Email', validators = [Required(), Email()])
 
+    password = PasswordField('Password', validators = [Required()]) 
+    
+    remember = BooleanField('Remember Me ')
 
-# register form
+    submit = SubmitField('Log in ')
+
 class RegistrationForm(FlaskForm):
-    """
-     class that defines the registration form
-    """
-    name = StringField('Name', validators=[Required(), Length(1, 64)])
-    email = StringField('Email', validators=[
-                        Required(), Length(1, 64), Email()])
-    username = StringField('Username', validators=[
-                           Required(), Length(1, 64)])
-    password = PasswordField('Password', validators=[
-                             Required(), EqualTo('confirm_password', message='Passwords must match.')])
-    confirm_password = PasswordField(
-        'Confirm password', validators=[Required()])
-    submit = SubmitField('Create Account')
+    
+    email = StringField('Your Email Address',validators=[Required(),Email()])
 
-    def check_email_exist(self, field):
-        if User.query.filter_by(email=field.data).first():
-            raise ValidationError('Email already registered. Please Login')
+    username = StringField('Enter your username',validators = [Required()])
 
-    def check_username_exist(self, field):
-        if User.query.filter_by(username=field.data).first():
-            raise ValidationError('Username already exist.')
+    password = PasswordField('Password',validators = [Required(), EqualTo('confirm_password',message = 'Ensure your Password match')])
+
+    confirm_password = PasswordField('Confirm Passwords',validators = [Required()])
+
+    submit = SubmitField('Sign Up')
+
+    def validate_email(self,data_field):
+            if User.query.filter_by(email =data_field.data).first():
+                raise ValidationError('There is an account with that email')
+
+    def validate_username(self,data_field):
+        if User.query.filter_by(username = data_field.data).first():
+            raise ValidationError('That username is taken')  
