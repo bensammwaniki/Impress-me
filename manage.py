@@ -3,7 +3,6 @@ from app import create_app ,db
 from flask_script import Manager,Shell,Server
 from app.models import User,Role, Comment, Pitch
 
-# Creating app instance
 app = create_app('production')
 
 
@@ -13,6 +12,7 @@ migrate = Migrate(app,db)
 manager.add_command('db',MigrateCommand)
 
 @manager.shell
+
 def make_shell_context():
     return dict(app = app,db = db,User = User,  Role = Role ,Comment = Comment, Pitch = Pitch  )
 
