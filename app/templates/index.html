@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% import 'macros.html'as macros%}
+{% block styles%}
+    {{ super() }}
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    {% endblock %}
+    <body>
+    {% block content %}
+<div class="container-fluid">
+    <div  style="background-color:#DDAF94; padding-top: 130px;" class="row">
+        
+        <div class="col-md-2">
+           
+       
+        </div>
+        <div class="col-md-8">
+        <a href="{{ url_for('main.new_pitch') }}"><button style="color: black;" class="btn btn-success">Post new pitch</button></a>
+            <br>
+            
+            <br>
+            <div>{{macros.displayPitches(pitch)}}</div>
+           
+                <div style="background-color:#b3d7ef;" class="card">
+                    <article class="media content-section">
+                        <div class="card-title">
+                           
+                        <div class="card-body">
+                            
+                            <h4 style="font-weight: bold;">Category:news</h4>
+                            <small> A news pitch </small>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Blanditiis velit qui officia hic!</p>
+                        <small><a href="#"><button class="btn btn-outline-success btn-sm" id="like"> </button>
+                            </a> <a href="#"><button class="btn btn-outline-warning btn-sm" id="dislike">dislike</button>
+                            </a>
+                        </small>                         
+                            <div>
+                                <a href=""> <button class="btn btn-outline-info btn-sm" id="comment">Comment</button> </a> 
+                            </div>
+                        </div>
+                            
+                        </div>
+                    </article>
+                </div>    
+        </div>
+    </div>
+</div>  
+<script type="text/javascript">
+$(document).ready(function(){
+    var like=0
+    var dislike=0
+    $("#like").click(function(){
+        like++;
+        document.getElementById("name").innerHTML=like
+
+});
+$("#dislike").click(function(){
+        dislike++;
+        document.getElementById("mane").innerHTML=dislike
+
+});
+    
+})
+
+</script>
+{% endblock  %}
+    </body>

@@ -1,0 +1,46 @@
+{% macro displayPitches(list) %}
+{% for pitch in list %}
+
+<div style="background-color:#b3d7ef;" class="card">
+    <article class="media content-section">
+        <div class="card-title">
+            <div class="article-metadata">
+             
+            </div>
+            <div class="card-body">
+            
+            <h3>Category: {{ pitch.category }}</h3>
+            <small style="font-size: larger;"> {{ pitch.title }} </small>
+            <p style="font-size: larger;"> {{ pitch.content }}</p>
+            <a href="#"><button class="btn btn-outline-success btn-sm" id="like">like</button>
+            <a href="#"><button class="btn btn-outline-warning btn-sm" id="dislike">dislike</button>
+            <br><br>
+            <div><a href="{{ url_for('main.new_comment',id=pitch.id) }}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
+            </div>
+            <br>
+        </div>
+    </article>
+    
+</div>   
+<br>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var like=0
+        var dislike=0
+        $("#like").click(function(){
+            like++;
+            document.getElementById("name").innerHTML=like
+    
+    });
+    $("#dislike").click(function(){
+            dislike++;
+            document.getElementById("mane").innerHTML=dislike
+    
+    });
+        
+    })
+    
+    </script>
+
+{% endfor %}
+{% endmacro %}
