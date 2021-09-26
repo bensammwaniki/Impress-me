@@ -8,56 +8,92 @@
     {% endblock %}
     <body>
     {% block content %}
-<div class="container-fluid">
-    <div  style="background-color:#DDAF94; padding-top: 130px;" class="row">
-        
-        <div class="col-md-2">
-           
-       
-        </div>
-        <div class="col-md-8">
-        <a href="{{ url_for('main.new_pitch') }}"><button style="color: black;" class="btn btn-success">Post new pitch</button></a>
+<div class="container-fluid" style="background-color:#04CED5; padding: 50px;min-height: 100vh;">
+        <a href="{{ url_for('main.new_pitch') }}"><button style="color: rgb(255, 255, 255);" class="btn btn-success">Post new pitch</button></a>
             <br>
-            
             <br>
-            <div>{{macros.displayPitches(pitch)}}</div>
-           
-                <div style="background-color:#b3d7ef;" class="card">
-                    <article class="media content-section">
-                        <div class="card-title">
-                           
+            <div class="row">
+                <div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                        {{macros.displayPitches(pitch)}}
+                    </div>
+                </div>
+            </div>
+
+                <div class="row">
+                    <div class="card" style="width: 25rem;">
+                        <div class="card-header">
+                          Featured
+                        </div>
                         <div class="card-body">
-                            
-                            <h4 style="font-weight: bold;">Category:news</h4>
-                            <small> A news pitch </small>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Blanditiis velit qui officia hic!</p>
-                        <small><a href="#"><button class="btn btn-outline-success btn-sm" id="like"> </button>
-                            </a> <a href="#"><button class="btn btn-outline-warning btn-sm" id="dislike">dislike</button>
-                            </a>
-                        </small>                         
-                            <div>
-                                <a href=""> <button class="btn btn-outline-info btn-sm" id="comment">Comment</button> </a> 
-                            </div>
+                          <h5 class="card-title">Special title treatment</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#"><button class="btn btn-outline-success btn-sm like">like</button></a>
+                          <a href="#"><button class="btn btn-outline-warning btn-sm dislike">dislike</button></a>
+                          <a href="#" class="btn btn-outline-warning btn-sm" id="comment">comment</a>
                         </div>
-                            
+                      </div>
+
+                      <div class="card" style="width: 25rem;">
+                        <div class="card-header">
+                          Featured
                         </div>
-                    </article>
-                </div>    
-        </div>
-    </div>
+                        <div class="card-body">
+                          <h5 class="card-title">Special title treatment</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#"><button class="btn btn-outline-success btn-sm like">like</button></a>
+                          <a href="#"><button class="btn btn-outline-warning btn-sm dislike">dislike</button></a>
+                          <a href="#" class="btn btn-outline-warning btn-sm" id="comment">comment</a>
+                        </div>
+                      </div>
+
+
+                      <div class="card" style="width: 25rem;">
+                        <div class="card-header">
+                          Featured
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">Special title treatment</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#"><button class="btn btn-outline-success btn-sm like">like</button></a>
+                          <a href="#"><button class="btn btn-outline-warning btn-sm dislike">dislike</button></a>
+                          <a href="#" class="btn btn-outline-warning btn-sm" id="comment">comment</a>
+                        </div>
+                      </div>
+
+                      <div class="card" style="width: 25rem;">
+                        <div class="card-header">
+                          Featured
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">Special title treatment</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#"><button class="btn btn-outline-success btn-sm like">like</button></a>
+                          <a href="#"><button class="btn btn-outline-warning btn-sm dislike">dislike</button></a>
+                          <a href="#" class="btn btn-outline-warning btn-sm" id="comment">comment</a>
+                        </div>
+                      </div>
+                    
+                </div>   
 </div>  
+<style>
+    .row{
+        display: flex;
+        justify-content: space-evenly;
+    }
+</style>
 <script type="text/javascript">
 $(document).ready(function(){
     var like=0
     var dislike=0
-    $("#like").click(function(){
+    $(".like").click(function(){
         like++;
-        document.getElementById("name").innerHTML=like
+        document.getElementsByClassName("like").innerHTML="like" + like
 
 });
-$("#dislike").click(function(){
+$(".dislike").click(function(){
         dislike++;
-        document.getElementById("mane").innerHTML=dislike
+        document.getElementById("mane").innerHTML="dislike" + dislike
 
 });
     
@@ -65,4 +101,3 @@ $("#dislike").click(function(){
 
 </script>
 {% endblock  %}
-    </body>
