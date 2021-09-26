@@ -58,4 +58,4 @@ def new_comment(id):
   
 
 
-    return render_template('comments.html', title='New Post', comment=comment,comment_form=form, post ='New Post')
+    return render_template('coments.html', title='New Post', comment=comment,comment_form=form, post ='New Post')

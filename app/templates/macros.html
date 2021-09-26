@@ -1,28 +1,19 @@
 {% macro displayPitches(list) %}
 {% for pitch in list %}
+<div class="card" style="width: 25rem;">
+    <div class="card-header">
+        Category: {{ pitch.category }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ pitch.title }}</h5>
+      <p class="card-text"> {{ pitch.content }}</p>
+      <a href="#"><button class="btn btn-outline-success btn-sm like">like</button></a>
+      <a href="#"><button class="btn btn-outline-warning btn-sm dislike">dislike</button></a>
+      <a href="{{ url_for('main.new_comment',id=pitch.id) }}" class="btn btn-outline-warning btn-sm" id="comment">comment</a>
+    </div>
+</div>
 
-<div style="background-color:#b3d7ef;" class="card">
-    <article class="media content-section">
-        <div class="card-title">
-            <div class="article-metadata">
-             
-            </div>
-            <div class="card-body">
-            
-            <h3>Category: {{ pitch.category }}</h3>
-            <small style="font-size: larger;"> {{ pitch.title }} </small>
-            <p style="font-size: larger;"> {{ pitch.content }}</p>
-            <a href="#"><button class="btn btn-outline-success btn-sm" id="like">like</button>
-            <a href="#"><button class="btn btn-outline-warning btn-sm" id="dislike">dislike</button>
-            <br><br>
-            <div><a href="{{ url_for('main.new_comment',id=pitch.id) }}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
-            </div>
-            <br>
-        </div>
-    </article>
-    
-</div>   
-<br>
+
 <script type="text/javascript">
     $(document).ready(function(){
         var like=0
