@@ -14,7 +14,7 @@ class Config:
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
-       
+
     pass
 
 # class TestConfig(Config):
@@ -38,7 +38,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://acces:Access@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/impressme'
 
     DEBUG = True
 
