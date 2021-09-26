@@ -26,11 +26,11 @@
     
               {% if current_user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('auth.login')}}">login</a>
+                <a class="nav-link" href="{{url_for('auth.logout')}}">log out</a>
               </li>
               {% else %}
               <li class="nav-item">
-                <a class="nav-link" href="{{url_for('auth.logout')}}">log out</a>
+                <a class="nav-link" href="{{url_for('auth.login')}}">login</a>
               </li>
               {% endif %}
               <li class="nav-item">
@@ -38,11 +38,9 @@
               </li>
     
             </ul>
-            {% if current_user.is_authenticated %}
             <span class="navbar-text">
-              Always impress me {{ current_user.username }}!!!
+              Always impress me <em style="color: white;">{{ current_user.username }}  </em>!!!
             </span>
-            {% endif %}         
           </div>
         </div>
       </nav>
@@ -55,7 +53,7 @@
 
 {% block footer %}
 <footer>
-<div class="navbar navbar-expand-lg navbar-dark bg-dark" style="color: white;justify-content: center;">
+<div class="navbar navbar-expand-lg navbar-dark bg-dark" style="color: white;justify-content: center;margin-top: 20px;">
         <a class="nav-link active" aria-current="page" style="color: white;" href="/">Copyright 2021|bensam</a>
 </div>
 </footer>
