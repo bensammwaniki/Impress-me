@@ -6,7 +6,7 @@
 
 #### By **Bensam mwaniki**
 ## Description
-This is an application the register users and gives them ana oppotunity to impress their readers. It also keeps track of user data like how many commets the user has added
+This is an application the registers users and gives them an opportunity to impress their readers. It also keeps track of user data like how many comments the user has added
 ## BEHAVIOUR DRIVEN DEVELOPMENT
 | GENERAL BEHAVIOUR | INPUT | OUTPUT|
 |:------------------|:--------|:-----------|
